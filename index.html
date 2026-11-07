@@ -65,7 +65,7 @@ box.innerHTML='<div class="small"><b>VISUAL TECHNIQUE GUIDE · '+found.title+'</
 card.appendChild(box);
 });
 }
-\nfunction logWorkout(){d.workouts.unshift({date:new Date().toISOString(),mins:mins.value,focus:focus.value,energy:energy.value});save();workoutMsg.textContent='Workout logged on this device.';renderWorkouts()}
+function logWorkout(){d.workouts.unshift({date:new Date().toISOString(),mins:mins.value,focus:focus.value,energy:energy.value});save();workoutMsg.textContent='Workout logged on this device.';renderWorkouts()}
 function renderWorkouts(){workouts.innerHTML=d.workouts.map(w=>'<div class="item"><b>'+w.focus+'</b><div class="small">'+new Date(w.date).toLocaleString()+' · '+w.mins+' min · '+w.energy+'</div></div>').join('')||'<div class="small">No sessions logged yet.</div>'}
 function addFood(){if(!food.value.trim())return;d.foods.push({date:new Date().toDateString(),name:food.value,k:+kcal.value||0,p:+protein.value||0,c:+carbs.value||0,f:+fat.value||0});save();food.value='';kcal.value=protein.value=carbs.value=fat.value='';renderFoods()}
 function renderFoods(){let a=d.foods.filter(x=>x.date===new Date().toDateString());foods.innerHTML=a.map(x=>'<div class="item">'+x.name+' · '+x.k+' kcal · P '+x.p+'g · C '+x.c+'g · F '+x.f+'g</div>').join('')||'<div class="small">Nothing logged today.</div>';totals.textContent='Today: '+a.reduce((s,x)=>s+x.k,0)+' kcal · '+a.reduce((s,x)=>s+x.p,0)+'g protein'}
