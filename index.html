@@ -110,7 +110,7 @@ const title=card.querySelector(':scope > b');if(!title)return;
 const found=demos.find(x=>title.textContent.toLowerCase().includes(x.match.toLowerCase()));if(!found)return;
 card.dataset.demoAdded='1';
 const box=document.createElement('div');box.className='demo';
-box.innerHTML='<div class="small"><b>MACRAE TECHNIQUE DEMO · '+found.title+'</b></div>'+(found.match==='seated chest press'?chestPressAnimation():illustration(found.kind)+'<div class="demo-note">'+found.cue+'</div><div class="demo-note"><b>Tempo:</b> about 2 seconds on the effort and 2–3 seconds on the return. Breathe out on effort and in on return. These are simplified position diagrams, not a substitute for a live technique check.</div>');
+box.innerHTML='<div class="small"><b>MACRAE TECHNIQUE DEMO · '+found.title+'</b></div>'+(found.match.toLowerCase()==='seated chest press'?chestPressAnimation():illustration(found.kind)+'<div class="demo-note">'+found.cue+'</div><div class="demo-note"><b>Tempo:</b> about 2 seconds on the effort and 2–3 seconds on the return. Breathe out on effort and in on return. These are simplified position diagrams, not a substitute for a live technique check.</div>');
 card.appendChild(box);
 });
 }
